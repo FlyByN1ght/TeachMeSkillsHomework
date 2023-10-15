@@ -1,6 +1,7 @@
 package FourthHW;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  *Для всех задач исходные условия следующие: пользователь с клавиатуры вводит размер
@@ -15,7 +16,13 @@ import java.util.Arrays;
 
 public class AllTaskWithoutScanner {
     public static void main(String[] args) {
-        int[] array = {1, 4, 10, 2, 5};
+        Scanner scanner = new Scanner(System.in);
+        System.out.print ("Index number: ");
+        double[] array = new double[scanner.nextInt()];
+
+        for(int i = 0; i < array.length; i++){
+            array[i] = (Math.random() * 10);
+        }
         System.out.println("Arrays: " + Arrays.toString(array));
 
         int[] reversedArray = reverse(array);
@@ -39,11 +46,11 @@ public class AllTaskWithoutScanner {
      * @param array исходный массив
      * @return массив, элементы которого идут в обратном порядке по сравнению с исходным
      */
-    static int[] reverse(int[] array) {
+    static int[] reverse(double[] array) {
         int[] newArray = new int[array.length];
 
         for (int i = 0; i < array.length; i++) {
-            newArray[array.length - 1 - i] = array[i];
+            newArray[array.length - 1 - i] = (int) array[i];
         }
 
         return newArray;
@@ -54,12 +61,12 @@ public class AllTaskWithoutScanner {
      * Найти индексы минимального и максимального элементов и вывести в консоль.
      * @param array исходный массив
      */
-    static void maxArray (int[] array){
+    static void maxArray (double[] array){
         int max = 0, maxIndex = 0;
 
         for (int i = 0; i < array.length; i++){
             if(array[i] > max){
-                max = array[i];
+                max = (int) array[i];
                 maxIndex = i;
             }
         }
@@ -71,12 +78,12 @@ public class AllTaskWithoutScanner {
      * Найти индексы минимального и максимального элементов и вывести в консоль.
      * @param array исходный массив
      */
-    static void minArray (int[] array){
+    static void minArray (double[] array){
         int min = 9999999, minIndex = 0;
 
         for (int i = 0; i < array.length; i++){
             if(array[i] < min){
-                min = array[i];
+                min = (int) array[i];
                 minIndex = i;
             }
         }
@@ -88,10 +95,10 @@ public class AllTaskWithoutScanner {
      * сообщение, что их нет.
      * @param array исходный массив
      */
-    static void nullArray (int[] array){
+    static void nullArray (double[] array){
         int numNumber = 0;
 
-        for (int j : array) {
+        for (double j : array) {
             if (j == 0) {
                 numNumber += 1;
             }
@@ -107,12 +114,12 @@ public class AllTaskWithoutScanner {
      * @param array исходный массив
      * @return массив, элементы которого перевернуты
      */
-    static int[] specReverse (int[] array){
+    static int[] specReverse (double[] array){
         int[] newArray = new int[array.length];
 
         for (int i = 0; i < array.length; i++){
-            newArray[array.length - 1 - i] = array[i];
-            newArray[i] = array[array.length - 1 - i];
+            newArray[array.length - 1 - i] = (int) array[i];
+            newArray[i] = (int) array[array.length - 1 - i];
         }
         return newArray;
     }
@@ -122,10 +129,10 @@ public class AllTaskWithoutScanner {
      * число больше предыдущего).
      * @param array исходный массив
      */
-    static void increasing (int[] array){
+    static void increasing (double[] array){
         boolean increasingNum = false;
 
-        for (int j : array) {
+        for (double j : array) {
             if (j <= array[array.length - 1]) {
                 increasingNum = true;
             } else {
@@ -146,11 +153,11 @@ public class AllTaskWithoutScanner {
      * содержит нуля в начале, кроме самого числа 0.
      * @param array исходный массив
      */
-    static void onePlus (int[] array){
+    static void onePlus (double[] array){
         int num = 0;
 
         for(int i = 0; i < array.length; i++){
-            num = num * 10 + array[i];
+            num = (int) (num * 10 + array[i]);
         }
         num += 1;
 
