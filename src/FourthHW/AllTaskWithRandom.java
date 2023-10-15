@@ -14,7 +14,7 @@ import java.util.Scanner;
  * version 2.0
  */
 
-public class AllTaskWithoutScanner {
+public class AllTaskWithRandom {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print ("Index number: ");
