@@ -79,7 +79,7 @@ public class AllTaskWithRandom {
      * @param array исходный массив
      */
     static void minArray (double[] array){
-        int min = 9999999, minIndex = 0;
+        int min = (int) array[0], minIndex = 0;
 
         for (int i = 0; i < array.length; i++){
             if(array[i] < min){
@@ -132,12 +132,12 @@ public class AllTaskWithRandom {
     static void increasing (double[] array){
         boolean increasingNum = false;
 
-        for (double j : array) {
-            if (j <= array[array.length - 1]) {
-                increasingNum = true;
-            } else {
+        for (int i = 1;i < array.length; i++) {
+            if (array[i] < array[i - 1]) {
                 increasingNum = false;
                 break;
+            }if (array[i] > array[i - 1]){
+                increasingNum = true;
             }
         }
 
