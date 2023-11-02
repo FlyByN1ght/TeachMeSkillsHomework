@@ -3,7 +3,7 @@ package NinthHW;
 public class Circle extends Figure {
 
     // Радиус круга
-    private final double r;
+    private final double R;
 
     /**
      * Конструктор круга.
@@ -11,17 +11,17 @@ public class Circle extends Figure {
      * @param r Радиус круга.
      */
     public Circle(double r) {
-        this.r = r;
+        this.R = r;
     }
 
     @Override
     double area() {
-        return Math.PI * Math.pow(r, 2);
+        return Math.PI * Math.pow(R, 2);
     }
 
     @Override
     double perimeter() {
-        double d = r + r;
+        double d = R + R;
         return (0.25 * Math.PI * Math.pow(d, 2));
     }
 }

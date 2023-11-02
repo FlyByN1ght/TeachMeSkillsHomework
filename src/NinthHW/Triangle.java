@@ -10,9 +10,9 @@ package NinthHW;
 public class Triangle extends Figure implements Cloneable {
 
     // Длины сторон треугольника
-    private final double a;
-    private final double b;
-    private final double c;
+    private final double A;
+    private final double B;
+    private final double C;
 
     /**
      * Конструктор треугольника.
@@ -22,21 +22,20 @@ public class Triangle extends Figure implements Cloneable {
      * @param c Длина третьей стороны.
      */
     public Triangle(double a, double b, double c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-
+        this.A = a;
+        this.B = b;
+        this.C = c;
     }
 
     @Override
     double area() {
-        double p = (a + b + c) / 2;
-        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        double p = (A + B + C) / 2;
+        return Math.sqrt(p * (p - A) * (p - B) * (p - C));
     }
 
     @Override
     double perimeter() {
-        return (a + b + c);
+        return (A + B + C);
     }
 
     /**

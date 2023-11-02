@@ -3,8 +3,8 @@ package NinthHW;
 public class Rectangle extends Figure {
 
     // Длины сторон прямоугольника
-    private final double a;
-    private final double b;
+    private final double A;
+    private final double B;
 
     /**
      * Конструктор прямоугольника.
@@ -13,17 +13,17 @@ public class Rectangle extends Figure {
      * @param b Длина другой стороны.
      */
     public Rectangle(double a, double b) {
-        this.a = a;
-        this.b = b;
+        this.A = a;
+        this.B = b;
     }
 
     @Override
     double area() {
-        return a * b;
+        return A * B;
     }
 
     @Override
     double perimeter() {
-        return 2 * (a + b);
+        return 2 * (A + B);
     }
 }
