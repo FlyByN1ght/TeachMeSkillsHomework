@@ -3,16 +3,16 @@ package TenthHW;
 import java.util.Objects;
 
 public class Password implements Cloneable{
-    private final String PASSWORD;
+    private String password;
 
     public Password(String password) {
-        PASSWORD = password;
+        Password.this.password = password;
     }
 
     @Override
     public String toString() {
         return "Password{" +
-                "PASSWORD='" + PASSWORD + '\'' +
+                "PASSWORD='" + password + '\'' +
                 '}';
     }
 
@@ -21,12 +21,12 @@ public class Password implements Cloneable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Password password = (Password) o;
-        return Objects.equals(PASSWORD, password.PASSWORD);
+        return Objects.equals(Password.this.password, password.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(PASSWORD);
+        return Objects.hash(password);
     }
 
     @Override

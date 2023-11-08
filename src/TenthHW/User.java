@@ -8,14 +8,14 @@ import java.util.Objects;
 @Getter
 @Setter
 public class User implements Cloneable {
-    private final String NAME;
-    private final String LASTNAME;
+    private String name;
+    private String lastName;
     private Password password;
     private int id;
 
     User(String name, String lastName, int id, Password password) {
-        this.NAME = name;
-        this.LASTNAME = lastName;
+        this.name = name;
+        this.lastName = lastName;
         this.id = id;
         this.password = password;
     }
@@ -23,8 +23,8 @@ public class User implements Cloneable {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + NAME + '\'' +
-                ", lastName='" + LASTNAME + '\'' +
+                "name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
                 ", id=" + id +
                 '}';
@@ -35,12 +35,12 @@ public class User implements Cloneable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && Objects.equals(NAME, user.NAME) && Objects.equals(LASTNAME, user.LASTNAME) && Objects.equals(password, user.password);
+        return id == user.id && Objects.equals(name, user.name) && Objects.equals(lastName, user.lastName) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(NAME, LASTNAME, password, id);
+        return Objects.hash(name, lastName, password, id);
     }
 
     @Override
@@ -51,10 +51,8 @@ public class User implements Cloneable {
     protected User clone(boolean cloneType, int cloneId, User... users) throws CloneNotSupportedException {
         for (User user : users) {
             if (cloneType && cloneId == user.getId()) {
-                User cloneUser = (User) super.clone();
-                cloneUser.id = user.id;
-                cloneUser.password = (Password) this.password.clone();
-                return cloneUser;
+                user.password = (Password) this.password.clone();
+                return user;
             }
         }
         return (User) super.clone();
