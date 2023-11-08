@@ -1,17 +1,22 @@
 package TenthHW;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Objects;
 
+@Getter
+@Setter
 public class User implements Cloneable {
     private final String NAME;
     private final String LASTNAME;
     private Password password;
-    private final int ID;
+    private int id;
 
     User(String name, String lastName, int id, Password password) {
         this.NAME = name;
         this.LASTNAME = lastName;
-        this.ID = id;
+        this.id = id;
         this.password = password;
     }
 
@@ -21,7 +26,7 @@ public class User implements Cloneable {
                 "name='" + NAME + '\'' +
                 ", lastName='" + LASTNAME + '\'' +
                 ", password='" + password + '\'' +
-                ", id=" + ID +
+                ", id=" + id +
                 '}';
     }
 
@@ -30,12 +35,12 @@ public class User implements Cloneable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return ID == user.ID && Objects.equals(NAME, user.NAME) && Objects.equals(LASTNAME, user.LASTNAME) && Objects.equals(password, user.password);
+        return id == user.id && Objects.equals(NAME, user.NAME) && Objects.equals(LASTNAME, user.LASTNAME) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(NAME, LASTNAME, password, ID);
+        return Objects.hash(NAME, LASTNAME, password, id);
     }
 
     @Override
@@ -43,12 +48,15 @@ public class User implements Cloneable {
         return super.clone();
     }
 
-    protected User clone(boolean cloneType, int cloneId) throws CloneNotSupportedException {
-        if (cloneType && cloneId == this.ID) {
-            User cloneUser = (User) super.clone();
-            cloneUser.password = (Password) this.password.clone();
-            return cloneUser;
-        } else
-            return (User) super.clone();
+    protected User clone(boolean cloneType, int cloneId, User... users) throws CloneNotSupportedException {
+        for (User user : users) {
+            if (cloneType && cloneId == user.getId()) {
+                User cloneUser = (User) super.clone();
+                cloneUser.id = user.id;
+                cloneUser.password = (Password) this.password.clone();
+                return cloneUser;
+            }
+        }
+        return (User) super.clone();
     }
 }
