@@ -201,8 +201,7 @@ public class Main {
         char[] strToChar = str.toCharArray();
         StringBuilder charToStr = new StringBuilder();
         for (char c : strToChar) {
-            charToStr.append(c);
-            charToStr.append(c);
+            charToStr.append(c).append(c);
         }
         System.out.println(charToStr);
     }
