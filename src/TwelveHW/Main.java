@@ -52,7 +52,7 @@ public class Main {
                 for (Pattern pat : patterns) {
                     Matcher matcher1 = pat.matcher(line);
                     while (matcher1.find()) {
-                        if(matcher1.group().matches(String.valueOf(patterns[0]))){
+                        if (matcher1.group().matches(String.valueOf(patterns[0]))) {
                             System.out.println("email: " + matcher1.group());
                         } else if ((matcher1.group().matches(String.valueOf(patterns[1])))) {
                             System.out.println("Phone number: " + matcher1.group());
