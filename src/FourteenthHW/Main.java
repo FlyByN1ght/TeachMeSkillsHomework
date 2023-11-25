@@ -71,7 +71,7 @@ public class Main {
         букв/цифр). Написать программу для чтения информации из входного файла - путь к
         входному файлу должен задаваться через консоль. Программа должна проверять
         номера документов на валидность. Валидные номера документов следует записать в
-        один файл-отчет. Невалидные номера документов следует записать в другойфайл-отчет,
+        один файл-отчет. Невалидные номера документов следует записать в другой файл-отчет,
         но после номеров документов следует добавить информацию о том,
         почему этот документ не валиден.
          */
@@ -94,35 +94,24 @@ public class Main {
             }
             String[] linesArray = stringBuilder.toString().split(System.lineSeparator());
 
-            Pattern[] patterns = {
-                  Pattern.compile("^docnum[A-Za-z0-9]{9}$"),
-                  Pattern.compile("^contract[A-Za-z0-9]{7}$")
-            };
-
             for (String line : linesArray) {
-                for (Pattern pat : patterns){
-                    Matcher matcher = pat.matcher(line);
-                    if(matcher.find()){
+                    if(line.matches("^docnum[A-Za-z0-9]{9}$") || line.matches("^contract[A-Za-z0-9]{7}$")){
                         validDocument.write(line);
                         validDocument.append("\n");
-                    }else {
+                    } else {
                         notValidDocument.write(line);
                         notValidDocument.append(" - невалидный по следующей причине: ");
 
                         if (line.length() < 15) {
                             notValidDocument.append("слишком короткий");
-                        } else if (line.startsWith("docnum")) {
-                            notValidDocument.append("не соответствует формату 'docnum'");
-                        } else if (line.startsWith("contract")) {
-                            notValidDocument.append("не соответствует формату 'contract'");
+                        } else if (!line.startsWith("docnum") || line.startsWith("contract")) {
+                            notValidDocument.append("не соответствует формату 'docnum' или 'contract'");
                         } else {
                             notValidDocument.append("неизвестная причина");
                         }
                         notValidDocument.append('\n');
                     }
                 }
-            }
-
         }catch (IOException e){
             e.printStackTrace();
         }
