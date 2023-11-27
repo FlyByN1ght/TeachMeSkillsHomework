@@ -105,8 +105,9 @@ public class Main {
         while (curr.next != null) {
             if (curr.next.val == target)
                 curr.next = curr.next.next;
-            else
+            else{
                 curr = curr.next;
+            }
         }
         return dummy.next;
     }
@@ -117,7 +118,7 @@ public class Main {
     static boolean isPalindrome(Palindrome head) {
 
         Palindrome slow = head;
-        boolean isPalindrome = true;
+        boolean isPalindrome = false;
         Stack<Integer> stack = new Stack<Integer>();
 
         // Помещаем элементы первой половины связного списка в стек
