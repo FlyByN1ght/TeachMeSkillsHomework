@@ -41,13 +41,11 @@ public class Student {
     }
 
     public static void studentsFilter() {
-        ArrayList<Student> studentsToRemove = new ArrayList<>();
-
         for (Student s : students) {
             double average = s.average();
 
             if (average < 3) {
-                studentsToRemove.add(s);
+                students.remove(s);
             } else {
                 if ("4".equals(s.curs)) {
                     s.curs = "Graduate";
@@ -56,7 +54,6 @@ public class Student {
                 }
             }
         }
-        students.removeAll(studentsToRemove);
     }
 
     @Override
