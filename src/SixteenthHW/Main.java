@@ -16,7 +16,7 @@ public class Main {
 
         System.out.println("Enter a string for the seconds task:");
         String[] taskTwo = scanner.nextLine().split(" ");
-        TaskTwo(taskTwo);
+        taskTwo(taskTwo);
 
         String taskThree = "([{}])";
         boolean result = checkBrackets(taskThree);
@@ -53,7 +53,7 @@ public class Main {
     String> следующим образом: для каждой строки добавьте ее первый символ
     в качестве ключа с последним символом в качестве значения.
      */
-    static void TaskTwo(String[] str) {
+    static void taskTwo(String[] str) {
         if (str.length == 0) {
             System.out.println("String is empty");
             return;
