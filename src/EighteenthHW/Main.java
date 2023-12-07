@@ -24,13 +24,13 @@ public class Main {
         developersArrayList.add(new Developers(12, "Kirill"));
 
         developersArrayList.stream()
-                .filter(name -> name.getName().toString().startsWith("An"))
+                .filter(name -> name.getName().startsWith("An"))
                 .filter(id -> id.getId() > 10)
                 .forEach(System.out::println);
     }
 
     /*
-    Создать коллекцию класса ArrayList наполнить ее элементами типа Integer. С помощью Stream'ов:
+    Создать коллекцию класса ArrayList наполнить ее элементами типа Integer. С помощью Stream:
     - Удалить дубликаты
     - Оставить только четные элементы
     - Вывести сумму оставшихся элементов в стриме
