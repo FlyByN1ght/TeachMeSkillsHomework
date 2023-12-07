@@ -84,13 +84,17 @@ public class Main {
 
         int[] range = {1, 2, 5, 8, 9, 13};
         StringBuilder builder = new StringBuilder();
+        ArrayList<String> kek = new ArrayList<>();
         map.entrySet().stream()
                 .filter(id -> idSorted(range, id.getKey()))
                 .filter(name -> name.getValue().length() % 2 != 0)
                 .map(Map.Entry::getValue)
-                .forEach(value -> builder.append(" ").append(value));
+                .forEach(kek::add);
+        for (String word : kek){
+            builder.append(" ").append(word);
+        }
         builder.delete(0, 1);
-        System.out.println(builder.reverse().toString());
+        System.out.println(builder.reverse());
     }
 
     /*
