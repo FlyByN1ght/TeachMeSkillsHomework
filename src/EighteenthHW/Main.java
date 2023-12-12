@@ -86,8 +86,7 @@ public class Main {
         StringBuilder builder = new StringBuilder();
         ArrayList<String> kek = new ArrayList<>();
         map.entrySet().stream()
-                .filter(id -> idSorted(range, id.getKey()))
-                .filter(name -> name.getValue().length() % 2 != 0)
+                .filter(value -> idSorted(range, value.getKey()) && value.getValue().length() % 2 != 0)
                 .map(Map.Entry::getValue)
                 .forEach(kek::add);
         for (String word : kek){
